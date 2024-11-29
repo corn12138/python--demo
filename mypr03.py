@@ -27,3 +27,8 @@ print(d)
 z1=3+4j
 z2=1-2j
 print(z1 * z2)
+
+e = [{'a':1,'b':2},{'a':3,'b':4}]
+print(id(e))
+print(type(e))
+print(e)
