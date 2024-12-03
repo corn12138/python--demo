@@ -175,6 +175,196 @@ print(_e.__next__())
 
 # 字典_特点_4种创建方式_普通_dict_zip_fromkeys
 # 字典是一种无序的数据结构，字典中的元素是键值对，键是唯一的，值可以重复
+# 字典的创建
+a = {"name":"zs",'age':19,'job':'programmer'}
+print(a,'字典')
+print(a['name']) # 通过键访问字典中的值
+
+b = dict(name='ls',age=20,job='teacher') # 通过关键字参数创建字典
+print(b,'字典2')
+
+c = dict([('name','ww'),('age',21),('job','doctor')]) #
+# 通过列表创建字典
+print(c,'字典3')
+
+k = ['name','age','job']
+v= ['zl',22,'driver']
+print(list(zip(k,v)),'zip')
+d = dict(zip(k,v)) # 通过zip()函数创建字典 --zip()函数将多个序列中的元素一一对应，返回一个元组的列表
+print(d,'字典4')
+
+e= dict.fromkeys(['name','age','job']) #
+# 通过fromkeys(
+# )方法创建字典
+print(e,'字典5')
+
+# 字典_元素的访问_键的访问_值的访问_键值对的访问
+
+print(a['name'],'元素访问') # 通过键访问字典中的值
+print(b.get('name'),'元素的访问') # 通过get()方法访问字典中的值
+# ---若键不存在，返回None
+print(a.get('gender','a man')) # 若键不存在，返回指定的默认值
+
+print(a.items()) # items()方法返回字典中的键值对
+print(a.keys()) # keys()方法返回字典中的键
+print(a.values()) # values()方法返回字典中的值
+print(len(a)) # len()方法返回字典中键值对的个数
+print('gender' in a) # in 判断键是否在字典中
 
 
 
+#字典_元素的添加_修改_删除
+#字典元素的添加
+
+a['address'] = 'beijing' # 添加一个新的键值对
+a['age'] = 90 # 修改键值对的值
+print(a,'添加修改1')
+g = {'name':'sd','age':342,'job':'sdf','cs':'erxewqwe'}
+a.update(g)
+print(a,'添加修改2') # update()方法将一个字典中的键值对添加到另一个字典中
+
+#字典元素的删除
+# del a['job'] # del 删除指定键值对
+# ages = a.pop('age') # pop 删除指定键值对，并返回该键值对的值
+# print(a,'删除1',ages)
+# a.clear() # clear()方法清空字典
+# print(a)
+# a.popitem() # popitem()方法随机删除字典中的一个键值对
+# print(a,'删除2')
+
+#字典_序列解包用于列表元组字典
+# 序列解包用于列表
+u,v,w = [1,2,3]
+print(u,v,w)
+# 序列解包用于元组
+x,y,z = (4,5,6)
+print(x,y,z)
+# 序列解包用于字典
+s={'name':'zs','age':19,'job':'programmer'}
+# m,n,o =  s
+# print(m,n,o,'字典解包')
+m,n,o = s.items() # items()方法返回字典中的键值对
+print(m[0],m[1],n[0],n[1],o[0],o[1],'字典解包1')
+# m,n,o = s.values() # values()方法返回字典中的值
+# print(m,n,o,'字典解包2')
+
+
+#字典_复杂表格数据存储_列表和字典综合嵌套
+
+r1 = {'name':'zs','age':19,'job':'programmer',
+      'salary':10000,'city':'beijing'}
+r2 = {'name':'ls','age':20,'job':'teacher','salary':20000,'city':'shanghai'}
+r3 = {'name':'ww','age':21,'job':'doctor','salary':30000,'city':'guangzhou'}
+
+tb = [r1,r2,r3] # 列表中的元素是字典
+print(tb,'表格数据')
+for i in range(len(tb)):
+    print(tb[i].get('salary','no salary'),tb[i].get(
+        'name'),tb[i].get('age'),tb[i].get('city')) # get(
+    # )方法访问字典中的值
+
+
+#字典_核心底层原理_内存分析_存储键值对过程
+ # 字典核心底层原理
+    # 字典是一种无序的数据结构，字典中的元素是键值对，键是唯一的，值可以重复
+
+
+
+#字典_核心底层原理_内存分析_查找值对象过程
+
+
+
+
+#集合_特点_创建和删除_交集并集差集运算
+    #集合是一种无序的数据结构，集合中的元素是唯一的，不重复
+
+a = {10,20,30,40,50}
+b = {100,200,30,400,500}
+# c = a|b # |并集运算
+# d = a&b # &交集运算
+# e = a-b # -差集运算
+c = a.union(b) # union()方法并集运算
+d = a.intersection(b) # intersection()方法交集运算
+e = a.difference(b) # difference()方法差集运算
+print(c,d,e)
+
+#集合和字典有何关系
+    #相同的
+        #集合和字典都是无序的数据结构
+        #两者都是使用hash表作为底层实现，这使得它们的查找、添加、删除操作的时间复杂度都是O(1)
+        #它们都是只能包含不可变的对象作为键或者元素。
+        #都是 {} 包裹
+        
+        # 不同点
+          #创建方式：
+            # 字典:使用{} 并包含键值对， {‘a’:2,'b':3}
+            # 集合:使用{} 或set()并包含元素， {1,2,3}
+          #结构：
+            #字典：包含键值对
+            #集合：只包含元素
+          #用途：
+            #字典：存储键值对的映射关系
+            #集合：存储唯一元素，用于去重
+          #索引：
+            #字典：通过键访问值 
+            #集合：不支持索引和访问
+           
+          #方法和操作：
+            #字典：items() keys() values() get() pop() update() clear() popitem()
+            #集合：union() intersection() difference() add() remove() discard() clear() pop()
+
+
+
+#元组与列表的相同点和不同点
+  #相同点
+    #元组和列表都是序列类型：可以按照索引访问元素，可以进行切片操作
+    #都可以存储任何类型的数据
+    #都支持嵌套操作：可以包含其他元组和列表
+    #都支持序列解包
+    #都可以使用len()函数获取长度
+    # 都可以使用 in 和 not in 判断元素是否在序列中
+    # 都可以使用 + 和 * 运算符进行拼接和重复操作
+    
+  #不同点
+    #可变性：
+        #元组是不可变的，元组的元素不能修改，删除，添加
+        #列表是可变的，列表的元素可以修改，删除，添加
+    #语法：
+        #元组使用()包裹元素，列表使用[]包裹元素
+        
+    #方法：
+        #元组没有append() extend() insert() remove() sort() reverse()等方法
+        #列表有append() extend() insert() remove() sort() reverse()等方法
+        
+    #性能：
+        #元组通常比列表占用更少的内存
+        #元组的访问速度比列表更快
+        
+     #适用场景：
+        #元组适用于存储不需要修改的数据，或者存储异构数据
+        #列表适用于存储需要修改的数据
+        
+     #哈希性：
+        #元组是可哈希的，可以作为字典的键，也可以作为集合的元素
+        #列表是不可哈希的，不能作为字典的键，也不能作为集合的元素
+        
+     #创建空序列：
+        #元组使用()创建空元组
+        #列表使用[]创建空列表
+        
+
+
+a = [
+    ['高小一',18,30000,'北京'],
+    ['高小二',19,20000,'上海'],
+    ['高小五',20,10000,'深圳']
+]
+
+for i in a:
+    for j in i:
+        print(j,end="\t")
+    print()
+    
+print(id(a[0]))
+print(id(a[1]))
+print(id(a[2]))
