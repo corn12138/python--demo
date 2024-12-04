@@ -52,8 +52,8 @@ if 0<c<10:
 # print(a)
 
 #多分支选择结构
-score = int(input('输入一个分数：'))
-grade = ''
+# score = int(input('输入一个分数：'))
+# grade = ''
 # if score>=90:
 #     grade = '优秀'
 # elif score>=80:
@@ -75,5 +75,23 @@ grade = ''
 # else:
 #     grade = '优秀'
 # print("分数是{0},等级是{1}".format(score,grade))
+
+x = int(input('输入x轴坐标：'))
+y = int(input('输入y轴坐标：'))
+
+if(x==0 and y==0):
+    print("坐标在原点")
+elif(x==0):
+    print("坐标在y轴上")
+elif(y==0):
+    print("坐标在x轴上")
+elif(x>0 and y>0):
+    print('坐标在第一象限')
+elif(x<0 and y>0):
+    print('坐标在第二象限')
+elif(x<0 and y<0):
+    print('坐标在第三象限')
+else:
+    print('坐标在第四象限')
 
 
