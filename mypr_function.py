@@ -341,3 +341,68 @@ print("*"*100)
 print()
 
 #嵌套函数_内部函数_数据隐藏
+def outer():
+    print("outer running")
+
+    def inner():
+        print("inner running")
+    inner()
+
+outer()
+# inner() # 报错，因为inner是一个局部函数，只能在outer函数中调用
+
+
+def printName(isChinese,name,familyName):
+
+    def inner_print(a,b):
+        print("{0} {1}".format(a,b))
+    if isChinese:
+        inner_print(familyName,name)
+    else:
+        inner_print(name,familyName)
+
+printName(True,"小明","张")
+printName(False,"Tom","Smith")
+
+#  nonlocal和global关键字
+a = 100
+
+def outer():
+    b = 10
+
+    def inner():
+        nonlocal b  # nonlocal关键字，用于在局部函数中修改外部函数的局部变量
+        print("inner b=",b)
+        b = 20
+
+        global a  # global关键字，用于在局部函数中修改全局变量
+        a = 200
+
+    inner()
+    
+    print("outer b=",b)
+outer()
+print("a=",a)
+
+print("*"*100)
+print()
+
+# LEGB规则 -- 作用域的查找顺序--局部变量、外部函数的变量、全局变量、内置变量
+s = 'global'
+def outer():
+    # s = "outer"
+
+    def inner():
+        # s = "inner"
+        print(s)
+        
+    inner()
+outer()
+
+
+        
+
+
+
+
+
